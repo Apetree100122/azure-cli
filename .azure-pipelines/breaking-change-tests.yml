@@ -1,16 +1,12 @@
 resources:
 - repo: self
-
 trigger: none
-
 pr:
   branches:
     include:
     - '*'
-
 variables:
 - template: ${{ variables.Pipeline.Workspace }}/.azure-pipelines/templates/variables.yml
-
 jobs:
 - job: BreakingChangeTest
   displayName: "Breaking Change Test"
