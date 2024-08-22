@@ -27,7 +27,6 @@ parameters:
   displayName: Job name
   type: string
   default: ''
-
 steps:
   - task: UsePythonVersion@0
     inputs:
@@ -38,7 +37,6 @@ steps:
       EnableCompactAAZ: true
   - bash: |
       set -ev
-
       source env/bin/activate
       echo jobName: ${{ parameters.jobName }}
       echo pythonVersion: ${{ parameters.pythonVersion }}
@@ -85,7 +83,6 @@ steps:
       fi
       echo $pipelineTestJson
       echo "##vso[task.setvariable variable=pipelineTestJson]$pipelineTestJson"
-
       pipelineTestParallelXml='false'
       if [[ -f '/$(HOME)/.azdev/env_config/mnt/vss/_work/1/s/env/test_results_${{ parameters.pythonVersion }}_${{ parameters.profile }}_${{ parameters.instance_idx }}.parallel.xml' ]]; then
         pipelineTestParallelXml='true'
